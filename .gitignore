@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Node / Vite
+node_modules/
+dist/
+
+# 下载的数据集（MNIST 等，运行脚本时自动下载）
+data/
+
+# macOS
+.DS_Store
+
+# 编辑器与系统
+.idea/
+.vscode/

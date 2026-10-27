@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML101 · 交互式模型训练入门课</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">ML<span>101</span></div>
+        <div class="brand-sub">交互式模型训练入门课</div>
+      </div>
+      <nav id="lesson-nav"></nav>
+      <div class="sidebar-footer">
+        <div class="progress-label">总进度 <span id="progress-pct">0%</span></div>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+      </div>
+    </aside>
+    <main id="content">
+      <div id="lesson-root"></div>
+      <div class="lesson-pager">
+        <button id="pager-prev" class="btn btn-ghost">← 上一课</button>
+        <button id="pager-next" class="btn btn-primary">下一课 →</button>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
