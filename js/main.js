@@ -1,6 +1,6 @@
 import { LESSONS } from "./lessons.js";
 
-const STORE_KEY = "ml101-progress-v1";
+const STORE_KEY = "ml101-restart-progress-v1";
 
 // ---------- 进度 ----------
 function loadProgress() {
@@ -32,7 +32,7 @@ function renderNav(activeIdx) {
   LESSONS.forEach((l, i) => {
     const item = document.createElement("div");
     item.className = "nav-item" + (i === activeIdx ? " active" : "") + (done.has(l.id) ? " done" : "");
-    item.innerHTML = `<span class="nav-idx">${i}</span><span>${l.nav}</span><span class="nav-check">✓</span>`;
+    item.innerHTML = `<span>${l.nav}</span><span class="nav-check">✓</span>`;
     item.addEventListener("click", () => go(i));
     nav.appendChild(item);
   });
@@ -123,13 +123,8 @@ function mountQuiz(root, lesson, idx) {
     const isLast = idx === LESSONS.length - 1;
     summary.classList.add("show");
     summary.innerHTML = isLast
-      ? `<div class="big">🎓 毕业快乐！全部 ${LESSONS.length} 课完成</div>
-         <p>从零基础到亲手玩转动量与 Adam：模型 → 损失 → 梯度下降 → 泛化 → 神经网络 → PyTorch → MNIST → 数据增强 → 优化器竞技场。
-         你脑子里那副骨架，和世界顶级研究员脑子里的形状相同。剩下的路，是选择方向反复磨练：
-         想深造就系统学（吴恩达/李沐课程 + 复现经典论文），想实用就挑一个真实问题（分类、预测、生成）从头做一遍。</p>`
-      : `<div class="big">🎉 本课通过！</div>
-         <p>概念记得牢，全靠亲手玩。继续下一课，难度刚刚好。</p>
-         <button class="btn btn-primary" style="margin-top:12px">进入下一课 →</button>`;
+      ? `<div class="big">🎉 完成当前阶段</div><p>你已经从数和图像走到模型预测、误差与损失。后续课程尚在建设中，可以回到前面的实验继续观察。</p>`
+      : `<div class="big">🎉 本课通过！</div><p>继续下一小步。</p><button class="btn btn-primary" style="margin-top:12px">进入下一课 →</button>`;
     if (!isLast) {
       summary.querySelector("button").addEventListener("click", () => go(idx + 1));
     }
